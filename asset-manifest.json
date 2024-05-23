@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tp5-castro_vazquez/static/css/main.031a978b.css",
+    "main.js": "/tp5-castro_vazquez/static/js/main.f7b0f489.js",
+    "static/js/453.03136d31.chunk.js": "/tp5-castro_vazquez/static/js/453.03136d31.chunk.js",
+    "index.html": "/tp5-castro_vazquez/index.html",
+    "main.031a978b.css.map": "/tp5-castro_vazquez/static/css/main.031a978b.css.map",
+    "main.f7b0f489.js.map": "/tp5-castro_vazquez/static/js/main.f7b0f489.js.map",
+    "453.03136d31.chunk.js.map": "/tp5-castro_vazquez/static/js/453.03136d31.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.031a978b.css",
+    "static/js/main.f7b0f489.js"
+  ]
+}
