@@ -1,12 +1,20 @@
 import "./Formulario.css";
-const Formulario = ({tareas, setTareas}) => {
+const Formulario = ({tareas, setTareas, tachado, setTachado}) => {
     const agregarTarea = (e) => {
-        setTareas([
-            ...tareas,
-            {
-              tareas: e.target.tarea.value,
-            },
-          ]);
+        e.preventDefault();
+        if (setTachado){
+            setTareas([
+                ...tareas,
+                {
+                  tarea: e.target.tarea.value,
+                  id: Date.now(),
+                  tachado: false,
+                  fecha: Date.now(),
+                  fechaTachado: null,
+                },
+            ]);
+        }
+        
     }
     return (
         <>
