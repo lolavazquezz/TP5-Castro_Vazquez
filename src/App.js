@@ -7,13 +7,12 @@ import { useState } from 'react';
 
 function App() {
   const [tareas, setTareas] = useState([]);
-  const [tachado, setTachado] = useState([]);
   return (
     <>
       <Titulo></Titulo>
-      <Formulario tareas={tareas} setTareas={setTareas} tachado={tachado} setTachado={setTachado}></Formulario>
+      <Formulario tareas={tareas} setTareas={setTareas}></Formulario>
       <ul>
-        {setTareas.map(c => <Tarea tareas={c.tareas}></Tarea>)}
+        {tareas.map(c => <Tarea tareas={c} setTareas={setTareas}></Tarea>)}
       </ul>
       <Boton setTareas={setTareas}></Boton>
     </>

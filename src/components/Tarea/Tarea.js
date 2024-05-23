@@ -1,21 +1,35 @@
 import "./Tarea.css";
-const Tarea = ({tareas}) => {
-    function tachar(id){
-        const index = tareas.findIndex(tareas => tareas.id === id);
-        let estilo = "";
-        let checkeado = "";
-        if (index !== -1) {
-            tareas[index].tachado = !tareas[index].tachado;
-            tareas[index].tachado = tareas[index].tachado ? Date.now() : undefined;
-        }
-        if (tareas.tachado){
-            estilo = "text-decoration: line-through";
-            checkeado = "checked"
-            tareas.fechaTachado = Date.now()
-        }
+import { useState } from "react";
+const Tarea = ({ tareas, setTareas}) => {
+  let [tachado, setTachado] = useState(false);
+  function tachar(id) {
+    const index = setTareas.findIndex((setTareas) => tareas.id === id);// NO FUCNIONA
+    if (index !== -1) {
+      setTachado((tachado = !tachado));
     }
-    return (
-        <input checkeado type="checkbox"onclick={tachar(tareas.id)}><span style={estilo}>{tareas}</span></input>
-    )
-}
+    if (tachado) {
+      tareas.fechaTachado = Date.now();
+    }
+  }
+  return (
+    <>
+      {tachado ? (
+        <div>
+          <input
+            checked
+            type="checkbox"
+            onClick={() => tachar(tareas.id)}
+            className="tachado"
+          />
+          <span>{tareas.tarea}</span>
+        </div>
+      ) : (
+        <div>
+          <input type="checkbox" onClick={() => tachar(tareas.id)} />
+          <span>{tareas.tarea}</span>
+        </div>
+      )}
+    </>
+  );
+};
 export default Tarea;
