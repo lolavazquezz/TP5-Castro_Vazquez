@@ -12,9 +12,9 @@ function App() {
       <Titulo></Titulo>
       <Formulario tareas={tareas} setTareas={setTareas}></Formulario>
       <ul>
-        {tareas.map(c => <Tarea tareas={c} setTareas={setTareas}></Tarea>)}
+        {tareas.map(c => <Tarea tarea={c} tareas={tareas} setTareas={setTareas}></Tarea>)}
       </ul>
-      <Boton setTareas={setTareas}></Boton>
+      <Boton tareas={tareas} setTareas={setTareas}></Boton>
     </>
   );
 }

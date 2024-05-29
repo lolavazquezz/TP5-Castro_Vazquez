@@ -1,15 +1,17 @@
 import "./Tarea.css";
 import { useState } from "react";
-const Tarea = ({ tareas, setTareas}) => {
+const Tarea = ({ tarea, tareas, setTareas}) => {
   let [tachado, setTachado] = useState(false);
   function tachar(id) {
-    const index = setTareas.findIndex((setTareas) => tareas.id === id);// NO FUCNIONA
-    if (index !== -1) {
-      setTachado((tachado = !tachado));
-    }
-    if (tachado) {
-      tareas.fechaTachado = Date.now();
-    }
+    setTachado(!tachado);
+
+    let tareasActualizado = tareas.map(t => t.id === id ? 
+      {
+        ...t,
+        fechaTachado: !tachado ? Date.now() : undefined,
+      } : t);
+    
+    setTareas(tareasActualizado)
   }
   return (
     <>
@@ -18,15 +20,14 @@ const Tarea = ({ tareas, setTareas}) => {
           <input
             checked
             type="checkbox"
-            onClick={() => tachar(tareas.id)}
-            className="tachado"
+            onClick={() => tachar(tarea.id)}
           />
-          <span>{tareas.tarea}</span>
+          <span class="tachado">{tarea.tarea}</span>
         </div>
       ) : (
         <div>
-          <input type="checkbox" onClick={() => tachar(tareas.id)} />
-          <span>{tareas.tarea}</span>
+          <input type="checkbox" onClick={() => tachar(tarea.id)} />
+          <span>{tarea.tarea}</span>
         </div>
       )}
     </>

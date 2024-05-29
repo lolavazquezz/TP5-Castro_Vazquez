@@ -1,20 +1,18 @@
 import "./Boton.css";
 import React from "react";
 import { useState } from 'react';
-function Boton({setTareas}){
-    let [tareaRapida, setTareaRapida] = useState([]);
+function Boton({tareas, setTareas}){
+    let [tareaRapida, setTareaRapida] = useState();
     function tareaMasRapida(){
         let rapida = 9999999999999999999999999999;
         let nom = "";
-        setTareas.filter(setTareas => setTareas.tareas.tachado).forEach(n=>{
+        tareas.filter(tareas => tareas.fechaTachado !== undefined).forEach(n=>{
             if (n.fechaTachado - n.fecha < rapida) {
                 rapida = n.fechaTachado - n.fecha;
-                nom = n.nombre;
+                nom = n.tarea;
             }
         })
-        setTareaRapida(
-            tareaRapida= nom
-        );
+        setTareaRapida(nom);
        
     }
     return (
