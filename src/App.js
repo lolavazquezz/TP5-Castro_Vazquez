@@ -10,11 +10,14 @@ function App() {
   return (
     <>
       <Titulo></Titulo>
+      <div class="botones">
       <Formulario tareas={tareas} setTareas={setTareas}></Formulario>
+      <Boton tareas={tareas} setTareas={setTareas}></Boton>
+      </div>
+      
       <ul>
         {tareas.map(c => <Tarea tarea={c} tareas={tareas} setTareas={setTareas}></Tarea>)}
       </ul>
-      <Boton tareas={tareas} setTareas={setTareas}></Boton>
     </>
   );
 }
